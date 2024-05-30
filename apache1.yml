@@ -1,27 +1,32 @@
-- hosts: 172.31.87.141
+         - hosts: 172.31.87.141
   become: True
   tasks:
-    - name: install apache server
-      yum: 
+    - name: Install Apache server
+      yum:
         name: httpd
         state: present
-    - name: start and enable
+
+    - name: Start and enable Apache service
       service:
         name: httpd
         state: started
         enabled: True
-    - name: configurintion apache on server
+
+    - name: Copy index.html to the web server root
       copy:
         src: index.html
-        dest: /var/www/html/
-    - name: change apache port
-      lineinline:
+        dest: /var/www/html/index.html
+
+    - name: Change Apache port to 8080
+      lineinfile:
         path: /etc/httpd/conf/httpd.conf
         regexp: '^Listen'
-        line: 'listen 8080'
-    - name: restart apache server
+        line: 'Listen 8080'
+
+    - name: Restart Apache server
       service:
         name: httpd
-        state: restart            
+        state: restarted
+
 
 
