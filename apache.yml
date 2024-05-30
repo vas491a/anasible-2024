@@ -1,7 +1,15 @@
-- hosts: 172.31.32.200
-  become: True
-  tasks: 
-   - name: install apache server
-    yum:
-     name: httpd
-     state: present
+---
+- name: Ensure Apache is installed
+  hosts: 172.31.87.141
+  become: yes
+  tasks:
+    - name: install apache server
+      yum:
+        name: httpd
+        state: present
+    - name: start apache server
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
