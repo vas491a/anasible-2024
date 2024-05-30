@@ -14,12 +14,12 @@
       copy:
         src: idex.html
         dest: /var/www/html/
-    - name: change Apache port
-      Lineinline:
+    - name: change apache port
+      lineinline:
         path: /etc/httpd/conf/httpd.conf
         regexp: '^Listen'
         line: 'listen 8080'
-    - name: restart Apache server
+    - name: restart apache server
       service:
         name: httpd
         state: restart            
