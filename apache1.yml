@@ -1,18 +1,27 @@
 - hosts: 172.31.87.141
   become: True
   tasks:
-  - name: install apache server
-    yum: 
-      name: httpd
-      state: present
-  - name: start and enable
-    service:
-      name: httpd
-      state: started
-      enabled: True
-  - name: configurintion apache on server
-    copy:
-      src: idex.html
-      dest: /var/www/html/
+    - name: install apache server
+      yum: 
+        name: httpd
+        state: present
+    - name: start and enable
+      service:
+        name: httpd
+        state: started
+        enabled: True
+    - name: configurintion apache on server
+      copy:
+        src: idex.html
+        dest: /var/www/html/
+    - name: change Apache port
+      Lineinline:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^Listen'
+        line: 'listen 8080'
+    - name: restart Apache server
+      service:
+        name: httpd
+        state: restart            
 
 
