@@ -12,7 +12,7 @@
       enabled: True
   - name: configurintion apache on server
     copy:
-      src: index.html
+      src: idex.html
       dest: /var/www/html/
 
 
