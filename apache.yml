@@ -7,9 +7,9 @@
       yum:
         name: httpd
         state: present
-    - name: start apache server
+    - name: start and enable
       service:
         name: httpd
         state: started
-        enabled: yes
+        enable: yes
 

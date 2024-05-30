@@ -1,0 +1,13 @@
+- hosts: 172.31.87.141
+  become: True
+  tasks:
+  - name: install apache server
+    yum: 
+      name: httpd
+      state: present
+  - name: start and enable
+    service:
+      name: httpd
+      state: started
+      enabled: True     
+
