@@ -9,5 +9,10 @@
     service:
       name: httpd
       state: started
-      enabled: True     
+      enabled: True
+  - name: configurintion apache on server
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
 
