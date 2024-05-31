@@ -1,7 +1,7 @@
 ---
 #- name: Ensure Apache is installed
   hosts: 172.31.87.141
-  become: yes
+  become: True
   tasks:
     - name: install apache server
       yum:
@@ -11,5 +11,5 @@
       service:
         name: httpd
         state: started
-        enable: yes
+        enabled: True
 
