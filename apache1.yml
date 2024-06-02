@@ -3,6 +3,7 @@
   hosts: 172.31.86.40,172.31.87.141
   become: True
   tasks:
+
     - name: do install apache
       yum:
         name: httpd
@@ -24,11 +25,11 @@
         path: /etc/httpd/conf/httpd.conf
         regexp: '^Listen'
         line: 'Listen 80'
-  
+
       notify:
         - Restart Apache server
-  
-  handlers:      
+        
+    handlers:      
     - name: Restart Apache server
       service:
         name: httpd
