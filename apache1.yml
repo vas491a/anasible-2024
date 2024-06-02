@@ -2,7 +2,7 @@
 - hosts: 172.31.86.40,172.31.87.141
   become: True
   tasks:
-    - name: Install Apache server
+    - name: apache is installed
       yum:
         name: httpd
         state: present
