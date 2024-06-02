@@ -1,6 +1,6 @@
 ---
-- name: apache is is=nstalled
-  hosts: 172.31.86.40,172.31.87.141
+- name: apache is nstalled
+  hosts: apache
   become: True
   tasks:
 
@@ -27,10 +27,10 @@
         line: 'Listen 80'
 
       notify:
-        - Restart Apache server
-        
-    handlers:      
-    - name: Restart Apache server
+        - Restart Apache 
+
+  handlers:      
+    - name: Restart Apache 
       service:
         name: httpd
         state: restarted
