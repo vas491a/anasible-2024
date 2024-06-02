@@ -18,11 +18,11 @@
         src: index.html
         dest: /var/www/html/index.html
 
-    - name: Change Apache port to 8080
+    - name: Change Apache port to 80
       lineinfile:
         path: /etc/httpd/conf/httpd.conf
         regexp: '^Listen'
-        line: 'Listen 8080'
+        line: 'Listen 80'
   
       notify:
         - Restart Apache server
