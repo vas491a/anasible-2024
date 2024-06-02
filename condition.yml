@@ -1,0 +1,15 @@
+- name: apply the condition and ansible facts
+  hosts: apache
+  become: True
+  tasks:
+    - name: do install git on servers
+      yum:
+       name: install git
+       state: present
+      when: ansible fmly install git on server == "RedHat"
+
+    - name: do install git on server
+      yum: 
+       name: install gi
+       state: present
+      when: ansible fmly install git on server == "Debien"   
