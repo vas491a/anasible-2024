@@ -25,7 +25,7 @@
         line: 'Listen 8080'
   
       notify:
-      - Restart Apache server
+        - Restart Apache server
   
   handlers:      
     - name: Restart Apache server
