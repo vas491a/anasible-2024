@@ -6,10 +6,10 @@
       yum:
        name: install git
        state: present
-      when: ansible fmly install git on server == "RedHat"
+      when: ansible_os_family == "RedHat"
 
     - name: do install git on server
       yum: 
        name: install gi
        state: present
-      when: ansible fmly install git on server == "Debien"   
+      when: ansible_os_family == "Debien"   
