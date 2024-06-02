@@ -1,5 +1,5 @@
 ---
-- hosts: 172.31.87.141
+- hosts: 172.31.87.141,172.31.86.40
   become: True
   tasks:
     - name: Install Apache server
@@ -23,7 +23,11 @@
         path: /etc/httpd/conf/httpd.conf
         regexp: '^Listen'
         line: 'Listen 8080'
-
+  
+      notify:
+      - Restart Apache server
+  
+  handlers:      
     - name: Restart Apache server
       service:
         name: httpd
