@@ -1,8 +1,10 @@
 ---
-- hosts: 172.31.87.141
+- name: apache is nstalled
+  hosts: apache
   become: True
   tasks:
-    - name: Install Apache server
+
+    - name: do install apache
       yum:
         name: httpd
         state: present
@@ -17,6 +19,16 @@
       copy:
         src: index.html
         dest: /var/www/html/index.html
+      
+      notify: 
+        - Restart Apache 
+        - Change Apache port to 8080
+
+  handlers:     
+    - name: Restart Apache 
+      service:
+        name: httpd
+        state: restarted
 
     - name: Change Apache port to 8080
       lineinfile:
@@ -24,10 +36,6 @@
         regexp: '^Listen'
         line: 'Listen 8080'
 
-    - name: Restart Apache server
-      service:
-        name: httpd
-        state: restarted
 
 
 

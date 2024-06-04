@@ -1,0 +1,15 @@
+- name: apply the condition and ansible facts
+  hosts: apache
+  become: True
+  tasks:
+    - name: install git on servers
+      yum:
+       name: git
+       state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: install git on server
+      apt: 
+       name: git
+       state: present
+      when: ansible_os_family == "Debien"   
