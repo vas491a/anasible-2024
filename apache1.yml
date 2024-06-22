@@ -14,11 +14,14 @@
         name: httpd
         state: started
         enabled: True
+        
 
-    - name: Copy index.html to the web server root
+    - name: Copy index.html 
       copy:
         src: index.html
         dest: /var/www/html/
+        notify:
+          - restart apache
       
     - name: Change Apache port to 80
       lineinfile:
@@ -27,7 +30,7 @@
         line: 'Listen 80'
       notify: 
         - Restart Apache 
-        - Change Apache port to 80
+        
 
   
   handlers:     
