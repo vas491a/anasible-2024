@@ -20,8 +20,8 @@
       copy:
         src: index.html
         dest: /var/www/html/
-        notify:
-          - restart apache
+       
+       
       
     - name: Change Apache port to 80
       lineinfile:
@@ -30,8 +30,6 @@
         line: 'Listen 80'
       notify: 
         - Restart Apache 
-        
-
   
   handlers:     
     - name: Restart Apache 
