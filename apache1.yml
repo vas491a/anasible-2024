@@ -18,7 +18,7 @@
     - name: Copy index.html to the web server root
       copy:
         src: index.html
-        dest: /var/www/html/index.html
+        dest: /var/www/html/
       
     - name: Change Apache port to 80
       lineinfile:
