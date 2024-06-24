@@ -23,15 +23,11 @@
        
        
       
-    - name: Change Apache port to 80
+    - name: Change Apache port
       lineinfile:
         path: /etc/httpd/conf/httpd.conf
         regexp: '^Listen'
-        line: 'Listen 80'
-      notify: 
-        - Restart Apache 
-  
-  handlers:     
+        line: 'Listen 8080'
     - name: Restart Apache 
       service:
         name: httpd
