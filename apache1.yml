@@ -28,6 +28,9 @@
         path: /etc/httpd/conf/httpd.conf
         regexp: '^Listen'
         line: 'Listen 8080'
+      notify:
+        - restarted apache
+  handler:      
     - name: Restart Apache 
       service:
         name: httpd
