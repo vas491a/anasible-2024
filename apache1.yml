@@ -30,7 +30,7 @@
         line: 'Listen 8080'
       notify:
         - restarted apache
-  handler:      
+    handler:      
     - name: Restart Apache 
       service:
         name: httpd
