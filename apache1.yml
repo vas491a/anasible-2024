@@ -31,10 +31,10 @@
       notify:
         - restart apache
     handler:      
-    - name: Restart Apache 
-      service:
-        name: httpd
-        state: restarted   
+      - name: Restart Apache 
+        service:
+            name: httpd
+            state: restarted   
 
 
 
