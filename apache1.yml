@@ -29,7 +29,7 @@
         regexp: '^Listen'
         line: 'Listen 8080'
       notify:
-        - restarted apache
+        - restart apache
     handler:      
     - name: Restart Apache 
       service:
