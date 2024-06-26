@@ -10,10 +10,10 @@
       state: present
 
   - name: Start and enable Apache service
-      service:
-        name: httpd
-        state: started
-        enabled: True
+    service:
+      name: httpd
+      state: started
+      enabled: True
   
   - name: Copy index.html 
     copy:
