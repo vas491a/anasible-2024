@@ -3,38 +3,35 @@
   hosts: apache
   become: True
   tasks:
-
-    - name: do install apache
+    
+  - name: do install apache
       yum:
         name: httpd
         state: present
 
-    - name: Start and enable Apache service
+  - name: Start and enable Apache service
       service:
         name: httpd
         state: started
         enabled: True
-        
-
-    - name: Copy index.html 
-      copy:
-        src: index.html
-        dest: /var/www/html/
-       
-       
-      
-    - name: Change Apache port
-      lineinfile:
-        path: /etc/httpd/conf/httpd.conf
-        regexp: '^Listen'
-        line: 'Listen 8080'
+  
+  - name: Copy index.html 
+    copy:
+      src: index.html
+      dest: /var/www/html/
+  - name: Change Apache port
+    lineinfile:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: '^Listen'
+      line: 'Listen 8080'
       notify:
         - restart apache
-    handlers:      
-      - name: Restart Apache 
-        service:
-            name: httpd
-            state: restarted   
+  
+  handlers:      
+    - name: Restart Apache 
+      service:
+          name: httpd
+          state: restarted   
 
 
 
