@@ -2,13 +2,13 @@
    hosts: apache
    become: True
    tasks:
-    - name: install git on servers
+    - name: install git on Linux
       yum:
        name: git
        state: present
       when: ansible_os_family == "RedHat"
 
-    - name: install git on server
+    - name: install git on Ubantu
       apt: 
        name: git
        state: present
