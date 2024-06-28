@@ -4,7 +4,7 @@
   become: True
   tasks:
     
-  - name: do install apache
+  - name: install apache server
     yum:
       name: httpd
       state: present
