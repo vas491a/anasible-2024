@@ -23,7 +23,7 @@
     lineinfile:
       path: /etc/httpd/conf/httpd.conf
       regexp: '^Listen'
-      line: 'Listen 9010'
+      line: 'Listen 9010' 
     notify:
       - restart apache
   
