@@ -4,4 +4,3 @@
 
 [apache.var]
 ansible_user=ec2-user
-ansible_ssh_private_key_file= /home/ec2-user/anasible/ansible.pem
