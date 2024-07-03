@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: "https://github.com/vas491a/anasible-2024" , branch: "prod"
+            }
+        }
+        stage('Run playbook') {
+            steps {
+                ansiblePlaybook credentialsId: 'Ansible', disableHostKeyChecking: true, inventory: 'dev', playbook: 'apache1.yml', vaultTmpPath: ''
+            }
+        }
+    }
+}
